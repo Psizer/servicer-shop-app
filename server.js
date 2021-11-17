@@ -21,7 +21,7 @@ app.use('/api/services', require('./routes/serviceRoute'))
 app.use('/api/users', require("./routes/userRoutes"))
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(_dirname, "/servicer/build")));
+    app.use(express.static(path.join(__dirname, "/servicer/build")));
     app.get("*",(req, res)=>{
         res.sendFile(path.resolve(_dirname, "servicer", "build", "index.html"))
     })
